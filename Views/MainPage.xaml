@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="slunaSIIITC2.MainPage">
+
+    <ContentPage.Resources>
+        <Style TargetType="Entry">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="BackgroundColor">
+                <AppThemeBinding Light="#E0F7FA" Dark="#37474F"/>
+            </Setter>
+            <Setter Property="TextColor">
+                <AppThemeBinding Light="Black" Dark="White"/>
+            </Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="TextColor">
+                <AppThemeBinding Light="Black" Dark="White"/>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" BackgroundColor="{AppThemeBinding Light='White', Dark='#121212'}">
+            <Label Text="Tipo de Identificación"/>
+            <Picker x:Name="identificationPicker" Title="Seleccione" SelectedIndexChanged="OnPickerSelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>CI</x:String>
+                        <x:String>RUC</x:String>
+                        <x:String>Pasaporte</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Entry x:Name="identificationEntry" Placeholder="Número de identificación"/>
+            <Entry x:Name="firstNameEntry" Placeholder="Nombres"/>
+            <Entry x:Name="lastNameEntry" Placeholder="Apellidos"/>
+            <DatePicker x:Name="birthDatePicker"/>
+            <Entry x:Name="emailEntry" Placeholder="Correo electrónico"/>
+            <Entry x:Name="salaryEntry" Placeholder="Salario" Keyboard="Numeric"/>
+
+            <Button Text="Guardar y Ver" Clicked="OnSaveClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
